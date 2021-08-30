@@ -1,0 +1,2 @@
+class Snspost < ApplicationRecord
+end

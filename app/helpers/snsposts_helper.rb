@@ -1,0 +1,2 @@
+module SnspostsHelper
+end
