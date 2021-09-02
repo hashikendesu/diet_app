@@ -39,6 +39,7 @@
 .sns_contents {
   display: flex;
   padding: 20px 0;
+  // background-color: rgb(255, 221, 127);
   border-bottom: 1px solid rgb(236, 236, 236);
 }
 
@@ -231,5 +232,40 @@
 }
 
 .sns_check_inner a:hover {
+  opacity: 0.6;
+}
+
+// devise----------------------------------
+// new.html.erb----------------------------
+.field {
+  margin-left: 65px;
+  // background-color: aquamarine;
+  width: 500px;
+  font-size: 22px;
+}
+
+.devise_form {
+  width: 100%;
+  height: 35px;
+  border: 1px solid rgb(187, 187, 187);
+  border-radius: 5px;
+  margin: 5px 0 15px 0;
+}
+
+.devise_btn {
+  width: 95%;
+  background-color: rgb(120, 255, 102);
+  border: 1px solid rgb(120, 255, 102);
+  border-radius: 15px;
+  text-align: center;
+  padding: 10px 0;
+  margin-left: 45px;
+  margin-top: 10px;
+  font-size: 22px;
+  color: rgb(255, 255, 255);
+  font-weight: bold;
+}
+
+.devise_btn:hover {
   opacity: 0.6;
 }

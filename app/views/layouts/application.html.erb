@@ -19,15 +19,21 @@
         <h1><a href="/">Dieter</a></h1>
         <div class="home_link">
           <a href="">Home</a>
-          <a href="">Profile</a>
-          <a href="">Calorie intake</a>
+          <% if user_signed_in? %>
+            <%= link_to "Profile", "/users/#{current_user.id}" %>
+            <a href="">Calorie intake</a>
+          <% end %>
         </div>
         <div class="home_post">
-          <a href="">Target weight</a>
-          <a href="">Record</a>
-          <a href="/snsposts/new">Post</a>
-          <a href="">Sign in</a>
-          <a href="">Sign up</a>
+          <% if user_signed_in? %>
+            <%= link_to "Target weight", root_path, class: "post" %>
+            <%= link_to "Record", root_path, class: "post" %>
+            <%= link_to "Post", new_snspost_path, class: "post" %>
+            <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
+          <% else %>
+            <%= link_to "Sign in", new_user_session_path, class: "post" %>
+            <%= link_to "Sign up", new_user_registration_path, class: "post" %>
+          <% end %>
         </div>
         <div class="home_profile">
           <img src="/assets/profile.jpg" alt="">

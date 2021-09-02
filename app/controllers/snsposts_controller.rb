@@ -1,5 +1,6 @@
 class SnspostsController < ApplicationController
   before_action :set_snspost, only: [:edit, :show]
+  before_action :move_to_index, except: [:index, :show]
 
   def index
     @snsposts = Snspost.all
@@ -31,11 +32,17 @@ class SnspostsController < ApplicationController
 
   private
   def snspost_params
-    params.require(:snspost).permit(:name, :image, :text)
+    params.require(:snspost).permit(:name, :image, :text).merge(user_id: current_user.id)
   end
 
   def set_snspost
     @snspost = Snspost.find(params[:id])
+  end
+
+  def move_to_index
+    unless user_signed_in?
+      redirect_to action: :index
+    end
   end
 
 end
