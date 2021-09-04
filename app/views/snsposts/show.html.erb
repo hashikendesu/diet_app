@@ -9,19 +9,21 @@
     <div class="sns_icon">
       <div class="icon_inner">
         <p>
-          <img src="img/profile.jpg" alt="">
+          <img src="/assets/profile.jpg" alt="">
         </p>
       </div>
     </div>
     <div class="sns_text">
       <div class="name_box">
-        <h1><%= @snspost.name %></h1>
+        <h1><%= @snspost.user.nickname %></h1>
         <div class="sns_drop">
-          <img src="/assets/down.png" alt="">
-          <div class="sns_drop_box">
-            <%= link_to '編集', edit_snspost_path(@snspost.id), method: :get %>
-            <%= link_to '削除', snspost_path(@snspost.id), method: :delete %>
-          </div>
+          <% if user_signed_in? && current_user.id == @snspost.user_id %>
+            <img src="/assets/down.png" alt="">
+            <div class="sns_drop_box">
+              <%= link_to '編集', edit_snspost_path(@snspost.id), method: :get %>
+              <%= link_to '削除', snspost_path(@snspost.id), method: :delete %>
+            </div>
+          <% end %>
         </div>  
       </div>
       <p class="sns_p"><%= @snspost.text %></p>

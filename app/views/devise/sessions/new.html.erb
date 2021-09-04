@@ -6,10 +6,6 @@
   <div class="sns_title_sha"></div>
   <div class="sns_contents">
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-      <div class="field">
-        <%= f.label :nickname %> <em>(10 characters maximum)</em><br />
-        <%= f.text_field :nickname, autofocus: true, maxlength: "10", class: "devise_form" %>
-      </div>
 
       <div class="field">
         <%= f.label :email %><br />

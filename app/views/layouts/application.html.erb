@@ -36,8 +36,10 @@
           <% end %>
         </div>
         <div class="home_profile">
-          <img src="/assets/profile.jpg" alt="">
-          <p>nameeeeeeee</p>
+          <% if user_signed_in? %>
+            <img src="/assets/profile.jpg" alt="">
+            <p><%= current_user.nickname %></p>
+          <% end %>
         </div>
       </div>
     </div>

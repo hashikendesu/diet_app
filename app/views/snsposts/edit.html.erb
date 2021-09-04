@@ -7,7 +7,6 @@
   <div class="sns_contents">
     <div class="sns_form_inner">
       <%= form_with(model: @snspost, local: true) do |form| %>
-        <%= form.text_field :name, placeholder: "name", class: "sns_form1" %>
         <%= form.text_area :text, placeholder: "text", rows: "8", class: "sns_form2" %>
         <div class="sns_image_send">
           <label class="sns_form3">

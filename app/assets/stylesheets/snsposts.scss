@@ -12,7 +12,7 @@
   /* background-color: rgb(255, 250, 205); */
   width: 630px;
   margin-left: 300px;
-  /* background-color: aqua; */
+  // background-color: aqua; 
 }
 
 .sns_title {
@@ -20,6 +20,7 @@
   font-size: 20px;
   position: fixed;
   display: flex;
+  z-index: 999;
   background-color: rgb(255, 255, 255);
   border-bottom: 1px solid rgb(236, 236, 236);
 }
@@ -269,3 +270,63 @@
 .devise_btn:hover {
   opacity: 0.6;
 }
+
+// ----user.show---------------
+.profile_contents {
+  padding: 20px 0;
+  // background-color: rgb(255, 221, 127);
+  border-bottom: 1px solid rgb(236, 236, 236);
+}
+
+.profile_box {
+  display: flex;
+}
+
+.profile_icon {
+  // background-color: cadetblue;
+  width: 28%;
+}
+
+.profile_inner {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.profile_inner img {
+  border: 1px solid rgb(236, 236, 236);
+  border-radius: 100%;
+}
+
+.profile_text {
+  width: 95%;
+  margin: 0 auto;
+  // background-color: aqua;
+}
+
+.profile_text h1 {
+  margin-top: 5px;
+  font-size: 23px;
+  font-weight: bold;
+}
+
+.profile_text p {
+  margin-top: 2px;
+  font-weight: bold;
+}
+
+.profile_link {
+  // background-color: chartreuse; 
+  width: 72%;
+  padding-top: 5px;
+}
+
+.profile_link a {
+  font-size: 20px;
+  font-weight: bold;
+  padding: 5px 10px;
+  // background-color: aqua;
+  border: 1px solid rgb(214, 214, 214);
+  border-radius: 20px;
+  margin-left: 300px;
+}
+

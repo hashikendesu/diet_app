@@ -3,7 +3,7 @@ class SnspostsController < ApplicationController
   before_action :move_to_index, except: [:index, :show]
 
   def index
-    @snsposts = Snspost.all
+    @snsposts = Snspost.includes(:user).order("created_at DESC")
   end
 
   def new
@@ -32,7 +32,7 @@ class SnspostsController < ApplicationController
 
   private
   def snspost_params
-    params.require(:snspost).permit(:name, :image, :text).merge(user_id: current_user.id)
+    params.require(:snspost).permit(:image, :text).merge(user_id: current_user.id)
   end
 
   def set_snspost
