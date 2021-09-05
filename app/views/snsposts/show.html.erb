@@ -30,8 +30,67 @@
       <%= image_tag "test1.jpg", alt: "Rails icon", class: "sns_img" %>
       <%# <p class="sns_img"><img src="/assets/test1.jpg" alt=""></p> %>
     </div>
-    
   </div>
 
+  <% if user_signed_in? %>
+    <div class="sns_contents">
+      <div class="sns_icon">
+        <div class="icon_inner">
+          <p>
+            <img src="/assets/profile.jpg" alt="">
+          </p>
+        </div>
+      </div>
+      <div class="sns_text">
+        <div class="comment_box">
+          <%= form_with(model: [@snspost, @comment], local: true) do |form| %>
+            <%= form.text_field :text, placeholder: "コメントする", class: "comment_form" %>
+            <div class="comment_image_send_box">
+              <label class="comment_img">
+                <p>image</p>
+                <%= form.file_field :image, class: "form_image" %>
+              </label>
+              <%= form.submit "SEND", class: "comment_send" %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  <% else %>
+    <div class="sns_contents">
+      <div class="warning_box">
+        <p class="warning_p">コメントにはSign in/Sign upが必要です。</p>
+      </div>
+    </div>
+  <% end %>
+
+  <% @comments.each do |comment| %>
+    <div class="sns_contents">
+      <div class="sns_icon">
+        <div class="icon_inner">
+          <p>
+            <img src="/assets/profile.jpg" alt="">
+          </p>
+        </div>
+      </div>
+      <div class="sns_text">
+        <div class="name_box">
+          <h1><%= comment.user.nickname %></h1>
+          <div class="sns_drop">
+            <% if user_signed_in? && current_user.id == comment.user_id %>
+              <img src="/assets/down.png" alt="">
+              <div class="sns_drop_box">
+                <%= link_to '編集', edit_snspost_path(@snspost.id), method: :get %>
+                <%= link_to '削除', snspost_path(@snspost.id), method: :delete %>
+              </div>
+            <% end %>
+          </div>  
+        </div>
+        <p class="sns_p"><%= comment.text %></p>
+        <%= image_tag "test1.jpg", alt: "Rails icon", class: "sns_img" %>
+        <%# <p class="sns_img"><img src="/assets/test1.jpg" alt=""></p> %>
+      </div>
+    </div>
+  <% end %>
 </div>
 <!-- /sns_box -->

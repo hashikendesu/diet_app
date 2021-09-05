@@ -28,6 +28,8 @@ class SnspostsController < ApplicationController
   end
 
   def show
+    @comment = Comment.new.order("created_at DESC")
+    @comments = @snspost.comments.includes(:user)
   end
 
   private
