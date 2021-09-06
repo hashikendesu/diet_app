@@ -80,8 +80,8 @@
             <% if user_signed_in? && current_user.id == comment.user_id %>
               <img src="/assets/down.png" alt="">
               <div class="sns_drop_box">
-                <%= link_to '編集', edit_snspost_path(@snspost.id), method: :get %>
-                <%= link_to '削除', snspost_path(@snspost.id), method: :delete %>
+                <%= link_to '編集', root_path, method: :get %>
+                <%= link_to '削除', "/comments/#{comment.id}", method: :delete %>
               </div>
             <% end %>
           </div>  
