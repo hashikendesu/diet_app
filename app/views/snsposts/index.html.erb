@@ -10,7 +10,13 @@
     <div class="sns_icon">
       <div class="icon_inner">
         <p>
-          <img src="/assets/profile.jpg" alt="">
+
+
+
+          <%# <%= image_tag snspost.image, class: 'message-image' %>
+
+
+
         </p>
       </div>
     </div>
@@ -31,8 +37,7 @@
         </div>  
       </div>
       <p class="sns_p"><%= snspost.text %></p>
-      <%= image_tag "test1.jpg", alt: "Rails icon", class: "sns_img" %>
-      <%# <p class="sns_img"><img src="/assets/test1.jpg" alt=""></p> %>
+      <%= image_tag snspost.image, alt: "Rails icon", class: "sns_img" if snspost.image.attached? %>
     </div>
   </div>
   <% end %>

@@ -27,8 +27,7 @@
         </div>  
       </div>
       <p class="sns_p"><%= @snspost.text %></p>
-      <%= image_tag "test1.jpg", alt: "Rails icon", class: "sns_img" %>
-      <%# <p class="sns_img"><img src="/assets/test1.jpg" alt=""></p> %>
+      <%= image_tag @snspost.image, alt: "Rails icon", class: "sns_img" if @snspost.image.attached? %>
     </div>
   </div>
 
@@ -87,7 +86,8 @@
           </div>  
         </div>
         <p class="sns_p"><%= comment.text %></p>
-        <%= image_tag "test1.jpg", alt: "Rails icon", class: "sns_img" %>
+        <%= image_tag comment.image, class: 'sns_img' if comment.image.attached? %>
+        <%# <%= image_tag "test1.jpg", alt: "Rails icon", class: "sns_img" %>
         <%# <p class="sns_img"><img src="/assets/test1.jpg" alt=""></p> %>
       </div>
     </div>

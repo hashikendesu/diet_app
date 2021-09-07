@@ -14,6 +14,11 @@
         </div>
 
         <div class="field">
+          <%= f.label :text %> <em>(30 characters maximum)</em><br />
+          <%= f.text_field :text, autofocus: true, maxlength: "30", class: "devise_form" %>
+        </div>
+
+        <div class="field">
           <%= f.label :email %><br />
           <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "devise_form" %>
         </div>

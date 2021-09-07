@@ -9,16 +9,16 @@
     <div class="profile_box">
       <div class="profile_icon">
         <div class="profile_inner">
-          <img src="/assets/profile.jpg" alt="">
+          <%= image_tag @user.image, class: 'profile_inner_img' if @user.image.attached? %>
         </div>
       </div>
       <div class="profile_link">
-        <a href="">Edit profile</a>
+        <%= link_to 'Edit profile', edit_user_registration_path(@user.id), method: :get %>
       </div>
     </div>
     <div class="profile_text">
-      <h1><%= @nickname %></h1>
-      <p>コメントコメントコメントコメントコメント</p>
+      <h1><%= @user.nickname %></h1>
+      <p><%= @user.text %></p>
     </div>
   </div>
   <% @snsposts.each do |snspost| %>
