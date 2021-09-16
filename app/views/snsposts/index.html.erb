@@ -10,13 +10,9 @@
     <div class="sns_icon">
       <div class="icon_inner">
         <p>
-
-
-
-          <%# <%= image_tag snspost.image, class: 'message-image' %>
-
-
-
+        <% if snspost.user.image.attached? %>
+          <%= image_tag snspost.user.image.variant(gravity: :center, resize:"640x640^", crop:"640x640+0+0").processed, class: 'icon_inner_img' %>
+        <% end %>
         </p>
       </div>
     </div>

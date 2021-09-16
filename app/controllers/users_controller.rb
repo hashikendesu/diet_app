@@ -9,6 +9,7 @@ class UsersController < ApplicationController
   end
 
   def edit
+    redirect_to " /users/#{current_user.id}"
   end
 
   def update

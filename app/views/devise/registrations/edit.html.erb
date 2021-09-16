@@ -23,12 +23,11 @@
           <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "devise_form" %>
         </div>
 
-        <label class="sns_form3">
-          <p>Select an image</p>
-          <%= f.file_field :image, autofocus: true, class: "form_image" %>
-        </label>
-
-        <div class="actions">
+        <div class="devise_image_form">
+          <label class="divise_image_box">
+            <p>Select an image</p>
+            <%= f.file_field :image, autofocus: true, class: "form_image" %>
+          </label>
           <%= f.submit "Save", class: "devise_btn" %>
         </div>
       <% end %>

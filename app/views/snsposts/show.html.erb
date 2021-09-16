@@ -9,7 +9,9 @@
     <div class="sns_icon">
       <div class="icon_inner">
         <p>
-          <img src="/assets/profile.jpg" alt="">
+        <% if @snspost.user.image.attached? %>
+          <%= image_tag @snspost.user.image.variant(gravity: :center, resize:"640x640^", crop:"640x640+0+0").processed, class: 'icon_inner_img' %>
+        <% end %>
         </p>
       </div>
     </div>
@@ -36,7 +38,9 @@
       <div class="sns_icon">
         <div class="icon_inner">
           <p>
-            <img src="/assets/profile.jpg" alt="">
+            <% if current_user.image.attached? %>
+              <%= image_tag current_user.image.variant(gravity: :center, resize:"640x640^", crop:"640x640+0+0").processed, class: 'icon_inner_img' %>
+            <% end %>
           </p>
         </div>
       </div>
@@ -68,7 +72,9 @@
       <div class="sns_icon">
         <div class="icon_inner">
           <p>
-            <img src="/assets/profile.jpg" alt="">
+            <% if comment.user.image.attached? %>
+              <%= image_tag comment.user.image.variant(gravity: :center, resize:"640x640^", crop:"640x640+0+0").processed, class: 'icon_inner_img' %>
+            <% end %>
           </p>
         </div>
       </div>
@@ -79,7 +85,6 @@
             <% if user_signed_in? && current_user.id == comment.user_id %>
               <img src="/assets/down.png" alt="">
               <div class="sns_drop_box">
-                <%= link_to '編集', root_path, method: :get %>
                 <%= link_to '削除', "/comments/#{comment.id}", method: :delete %>
               </div>
             <% end %>
@@ -87,8 +92,6 @@
         </div>
         <p class="sns_p"><%= comment.text %></p>
         <%= image_tag comment.image, class: 'sns_img' if comment.image.attached? %>
-        <%# <%= image_tag "test1.jpg", alt: "Rails icon", class: "sns_img" %>
-        <%# <p class="sns_img"><img src="/assets/test1.jpg" alt=""></p> %>
       </div>
     </div>
   <% end %>

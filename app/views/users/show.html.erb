@@ -9,7 +9,9 @@
     <div class="profile_box">
       <div class="profile_icon">
         <div class="profile_inner">
-          <%= image_tag @user.image, class: 'profile_inner_img' if @user.image.attached? %>
+        <% if @user.image.attached? %>
+          <%= image_tag @user.image.variant(gravity: :center, resize:"640x640^", crop:"640x640+0+0").processed, class: 'profile_inner_img'%>
+        <% end %>
         </div>
       </div>
       <div class="profile_link">
@@ -26,7 +28,9 @@
     <div class="sns_icon">
       <div class="icon_inner">
         <p>
-          <img src="/assets/profile.jpg" alt="">
+        <% if snspost.user.image.attached? %>
+          <%= image_tag snspost.user.image.variant(gravity: :center, resize:"640x640^", crop:"640x640+0+0").processed, class: 'icon_inner_img'%>
+        <% end %>
         </p>
       </div>
     </div>
@@ -43,8 +47,7 @@
         </div>  
       </div>
       <p class="sns_p"><%= snspost.text %></p>
-      <%= image_tag "test1.jpg", alt: "Rails icon", class: "sns_img" %>
-      <%# <p class="sns_img"><img src="/assets/test1.jpg" alt=""></p> %>
+      <%= image_tag snspost.image, alt: "Rails icon", class: "sns_img" if snspost.image.attached? %>
     </div>
   </div>
   <% end %>

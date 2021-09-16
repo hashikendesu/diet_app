@@ -56,7 +56,7 @@
   margin: 0 auto;
 }
 
-.icon_inner img {
+.icon_inner_img {
   border: 1px solid rgb(236, 236, 236);
   border-radius: 100%;
 }
@@ -389,3 +389,73 @@
   // background-color: blanchedalmond;
 }
 
+.devise_image_form {
+  display: flex;
+  margin-left: 66px;
+}
+
+.divise_image_box {
+  width: 50%;
+  background-color: rgb(120, 255, 102);
+  border: 1px solid rgb(120, 255, 102);
+  border-radius: 15px;
+  text-align: center;
+  padding: 10px 0;
+  margin-top: 10px;
+  font-size: 22px;
+  color: rgb(255, 255, 255);
+  font-weight: bold;
+}
+
+.divise_image_box:hover {
+  opacity: 0.6;
+}
+
+.devise_btn {
+  width: 50%;
+  background-color: rgb(187, 187, 187);
+  border: 1px solid rgb(187, 187, 187);
+  border-radius: 15px;
+  text-align: center;
+  padding: 10px 0;
+  margin-left: 45px;
+  margin-top: 10px;
+  font-size: 22px;
+  color: #333;
+  font-weight: bold;
+}
+
+.devise_btn:hover {
+  opacity: 0.6;
+}
+
+.devise_sign {
+  width: 50%;
+  background-color: rgb(187, 187, 187);
+  border: 1px solid rgb(187, 187, 187);
+  border-radius: 15px;
+  text-align: center;
+  padding: 10px 0;
+  margin-left: 170px;
+  margin-top: 10px;
+  font-size: 22px;
+  color: #333;
+  font-weight: bold;
+}
+
+.devise_sign:hover {
+  opacity: 0.6;
+}
+
+.weight_text {
+  font-size: 26px;
+  margin: 10px 0 20px 0px;
+  text-align: center;
+  
+}
+
+.weight_form {
+  // background-color: antiquewhite;
+  width: 90px;
+  margin-left: 10px;
+}

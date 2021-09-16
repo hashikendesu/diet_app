@@ -26,7 +26,7 @@
         </div>
         <div class="home_post">
           <% if user_signed_in? %>
-            <%= link_to "Target weight", root_path, class: "post" %>
+            <%= link_to "Target weight", new_weight_path, class: "post" %>
             <%= link_to "Record", root_path, class: "post" %>
             <%= link_to "Post", new_snspost_path, class: "post" %>
             <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
@@ -37,7 +37,9 @@
         </div>
         <div class="home_profile">
           <% if user_signed_in? %>
-            <img src="/assets/profile.jpg" alt="">
+            <% if current_user.image.attached? %>
+              <%= image_tag current_user.image, class: 'home_profile_img'%>
+            <% end %>
             <p><%= current_user.nickname %></p>
           <% end %>
         </div>
@@ -53,19 +55,23 @@
         <div class="goal_inner">
           <div class="goal_title">
             <h1>Target weight</h1>
-            <div class="weight_drop">
-              <img src="/assets/down.png" alt="">
-              <div class="weight_drop_box">
-                <a href="">編集</a>
-                <a href="">削除</a>
-              </div>
-            </div>
           </div>
-          <p class="weight">Target weight : 68kg</p>
-          <p class="weight">Current weight : 78kg</p>
+          <p class="weight">Target weight : 
+          <% if user_signed_in? && current_user.id == @weight.user_id %>
+            <%= @weight.target %>
+          <% end %>
+          kg</p>
+          <p class="weight">Current weight : 
+          <% if user_signed_in? && current_user.id == @weight.user_id %>
+            <%= @weight.current %>
+          <% end %>
+          kg</p>
           <div class="calorie">
             <h2>Daily target calorie intake</h2>
-            <p>2456kcal</p>
+            <% if user_signed_in? && current_user.id == @weight.user_id %>
+              <p><%= @weight.intake %>
+            <% end %>
+            kcal</p>
           </div>
         </div>
       </div>

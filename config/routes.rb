@@ -6,4 +6,5 @@ Rails.application.routes.draw do
   end
   resources :users, only: [:show, :edit, :update]
   resources :comments, only: :destroy
+  resources :weights, only: [:new, :create]
 end

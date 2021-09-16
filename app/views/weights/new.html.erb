@@ -1,0 +1,20 @@
+<!-- sns_box -->
+<div class="sns_box">
+  <div class="sns_title">
+    <h1>目標を記入</h1>
+  </div>
+  <div class="sns_title_sha"></div>
+  <div class="sns_contents">
+    <div class="sns_form_inner">
+      <%= form_with(model: @weight, local: true) do |form| %>
+        <p class="weight_text">Target weight : <%= form.text_field :target, placeholder: "text", class: "weight_form" %>kg</p>
+        <p class="weight_text">Current weight : <%= form.text_field :current, placeholder: "text", class: "weight_form" %>kg</p>
+        <p class="weight_text">Daily target calorie intake : <%= form.text_field :intake, placeholder: "text", class: "weight_form" %>kg</p>
+        <div class="sns_image_send">
+          <%= form.submit "SEND", class: "sns_form4" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+<!-- /sns_box -->

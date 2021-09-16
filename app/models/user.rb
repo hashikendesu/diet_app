@@ -5,6 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :snsposts
   has_many :comments
+  has_many :weights
   has_one_attached :image
 
   validates :nickname, length: { maximum: 10, message: "は10文字以下にしてください" }
